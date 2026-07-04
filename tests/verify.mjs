@@ -62,6 +62,8 @@ check(index.includes('data-fleet-demo'), 'index.html: interactive Fleet demo is 
 check(index.includes('data-showcase-image'), 'index.html: screenshot showcase is missing');
 check(index.includes('src="./src/demo.js"'), 'index.html: demo controller is missing');
 check(index.includes('Fleet 1.5.2'), 'index.html: latest Fleet version is missing');
+check(index.includes('property="og:image" content="https://toluwer.github.io/Fleet-website/screens/instances.png"'), 'index.html: Discord preview image must use an absolute public URL');
+check(index.includes('name="twitter:card" content="summary_large_image"'), 'index.html: large social preview metadata is missing');
 check(!/<a[^>]+href="[^"]*(?:download|installer)/i.test(index), 'index.html: product page drifted back into an installer portal');
 
 for (const source of ['src/site.js', 'src/demo.js']) {
