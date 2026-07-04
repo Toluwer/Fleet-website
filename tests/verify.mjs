@@ -3,7 +3,7 @@ import { dirname, extname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const pages = ['index.html', 'features.html', 'docs.html', 'download.html', 'changelog.html', '404.html'];
+const pages = ['index.html', '404.html'];
 const errors = [];
 
 function check(condition, message) {
@@ -58,13 +58,11 @@ for (const page of pages) {
 }
 
 const index = await readFile(join(root, 'index.html'), 'utf8');
-const features = await readFile(join(root, 'features.html'), 'utf8');
-const docs = await readFile(join(root, 'docs.html'), 'utf8');
 check(index.includes('data-fleet-demo'), 'index.html: interactive Fleet demo is missing');
 check(index.includes('data-showcase-image'), 'index.html: screenshot showcase is missing');
 check(index.includes('src="./src/demo.js"'), 'index.html: demo controller is missing');
-check(features.includes('data-server-lab'), 'features.html: Server Intelligence lab is missing');
-check(docs.includes('data-docs-search'), 'docs.html: documentation search is missing');
+check(index.includes('Fleet 1.5.2'), 'index.html: latest Fleet version is missing');
+check(!/<a[^>]+href="[^"]*(?:download|installer)/i.test(index), 'index.html: product page drifted back into an installer portal');
 
 for (const source of ['src/site.js', 'src/demo.js']) {
   const code = await readFile(join(root, source), 'utf8');

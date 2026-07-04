@@ -34,10 +34,7 @@ function svg(name) {
 
 const page = document.body.dataset.page || 'home';
 const links = [
-  ['home', './index.html', 'Overview'],
-  ['features', './features.html', 'Features'],
-  ['docs', './docs.html', 'Docs'],
-  ['changelog', './changelog.html', 'Changelog']
+  ['home', './index.html', 'Overview']
 ];
 
 function headerMarkup() {
@@ -46,9 +43,9 @@ function headerMarkup() {
     <div class="nav-shell shell">
       <a class="site-brand" href="./index.html" aria-label="Fleet home"><img src="./assets/fleet-logo.svg" alt=""><span>Fleet</span><small>for Windows</small></a>
       <nav class="desktop-nav" aria-label="Primary navigation">${nav}</nav>
-      <div class="nav-actions"><span class="nav-version">v1.5.1</span><a class="button button-primary" href="./download.html">Download</a><button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" data-menu-toggle>${svg('menu')}</button></div>
+      <div class="nav-actions"><span class="nav-version">v1.5.2</span><a class="button button-primary" href="https://github.com/Toluwer/Fleet">GitHub</a><button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" data-menu-toggle>${svg('menu')}</button></div>
     </div>
-    <nav class="mobile-nav" aria-label="Mobile navigation" data-mobile-nav>${nav}<a class="button button-primary" href="./download.html">Download Fleet</a></nav>
+    <nav class="mobile-nav" aria-label="Mobile navigation" data-mobile-nav>${nav}<a class="button button-primary" href="https://github.com/Toluwer/Fleet">View on GitHub</a></nav>
   </header>`;
 }
 
@@ -56,8 +53,8 @@ function footerMarkup() {
   return `<footer class="site-footer"><div class="shell">
     <div class="footer-grid">
       <div class="footer-intro"><a class="site-brand" href="./index.html"><img src="./assets/fleet-logo.svg" alt=""><span>Fleet</span></a><p>A local-first Windows command center for launching and managing multiple Roblox clients.</p></div>
-      <div class="footer-column"><h3>Product</h3><a href="./features.html">Features</a><a href="./download.html">Download</a><a href="./changelog.html">Changelog</a></div>
-      <div class="footer-column"><h3>Learn</h3><a href="./docs.html">Documentation</a><a href="./docs.html#architecture">Architecture</a><a href="./docs.html#troubleshooting">Troubleshooting</a></div>
+      <div class="footer-column"><h3>Project</h3><a href="./index.html#demo">Demo</a><a href="./index.html#features">Features</a><a href="./index.html#inside">How it works</a></div>
+      <div class="footer-column"><h3>Community</h3><a href="https://github.com/Toluwer/Fleet/issues">Issues</a><a href="https://github.com/Toluwer/Fleet/releases">Releases</a></div>
       <div class="footer-column"><h3>Source</h3><a href="https://github.com/Toluwer/Fleet">Application repository</a><a href="https://github.com/Toluwer/Fleet/releases">Releases</a><a href="https://github.com/Toluwer/Fleet/blob/main/LICENSE">MIT license</a></div>
     </div>
     <div class="footer-bottom"><span>© 2026 Fleet. Independent software; not affiliated with Roblox Corporation.</span><span>Local-first · Windows-only · MIT licensed</span></div>

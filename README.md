@@ -1,6 +1,6 @@
 # Fleet website
 
-Official product website for Fleet, a local-first multi-instance launcher and account manager for Roblox on Windows.
+Original one-page GitHub project showcase for Fleet, a local-first multi-instance launcher and account manager for Roblox on Windows.
 
 This website lives in its own repository so the Fleet desktop application source remains unchanged.
 
@@ -10,8 +10,6 @@ This website lives in its own repository so the Fleet desktop application source
 npm install
 npm run dev
 ```
-
-Open the local URL printed by Vite.
 
 ## Validate and build
 
@@ -25,23 +23,10 @@ The production site is generated in `dist/`.
 
 ## Deploy
 
-GitHub Pages deployment is configured in `.github/workflows/pages.yml`. In the GitHub repository:
+GitHub Pages deployment is configured in `.github/workflows/pages.yml`. Set the repository's Pages source to GitHub Actions, then push `main` or run the workflow manually.
 
-1. Open **Settings → Pages**.
-2. Set **Source** to **GitHub Actions**.
-3. Push to `main` or run the workflow manually.
+## Page
 
-The workflow installs locked dependencies, validates the site, builds all pages, and deploys `dist/`.
+`index.html` is a single original project page with a live Fleet simulation, capability overview, real app screenshots, an architecture summary, and links to the source repository.
 
-## Pages
-
-- `index.html` — product overview and interactive Fleet simulation
-- `features.html` — capabilities and interactive Server Intelligence lab
-- `docs.html` — install and usage documentation
-- `download.html` — release, requirements, verification, and installation
-- `changelog.html` — recent release history
-
-## Source material
-
-Copy and technical claims are derived from Fleet's README, user guide, technical documentation, release history, and real application screenshots. The demo is explicitly labeled as simulated and never connects to a Roblox account.
-
+Copy and technical claims are derived from Fleet 1.5.2's README, technical documentation, release metadata, and real application screenshots. The browser demo is explicitly simulated and never connects to a Roblox account.
