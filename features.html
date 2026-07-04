@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore Fleet's multi-instance engine, account manager, Server Intelligence, saved sessions, live operations, and local playtime analytics.">
+  <meta name="theme-color" content="#080a0c">
+  <title>Features · Fleet</title>
+  <link rel="icon" href="./assets/fleet-icon.png">
+  <link rel="stylesheet" href="./src/styles.css">
+</head>
+<body data-page="features">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div data-site-header></div>
+  <main id="main">
+    <section class="page-hero shell">
+      <div class="page-hero-copy reveal">
+        <span class="eyebrow">Capabilities</span>
+        <h1>Built for the whole<br>multi-client loop.</h1>
+        <p>Fleet handles launch isolation, accounts, exact-server joins, live operations, and cleanup as one coherent local workflow.</p>
+      </div>
+      <div class="page-hero-orbit reveal" aria-hidden="true">
+        <div class="orbit-center"><img src="./assets/fleet-logo.svg" alt=""></div>
+        <span style="--i:0">Launch</span><span style="--i:1">Inspect</span><span style="--i:2">Arrange</span><span style="--i:3">Rejoin</span><span style="--i:4">Track</span><span style="--i:5">Clean</span>
+      </div>
+    </section>
+
+    <section class="section shell feature-detail-grid" aria-label="Fleet capabilities">
+      <article class="feature-detail reveal">
+        <span class="feature-index">01 · Multi-instance engine</span>
+        <h2>Real clients. Unique paths.</h2>
+        <p>Fleet creates instant directory junctions to the installed Roblox version. Each client sees a distinct executable path, preventing per-path mutex collisions without duplicating game files.</p>
+        <ul class="check-list compact"><li><span data-icon="check"></span>Launch signed in or signed out</li><li><span data-icon="check"></span>Staggered startup for slower PCs</li><li><span data-icon="check"></span>Automatic junction cleanup</li></ul>
+      </article>
+      <div class="feature-visual path-lab reveal" aria-label="Three isolated Roblox client paths">
+        <div class="lab-label">%APPDATA%\fleet\clones</div>
+        <div class="path-row"><i>01</i><span>instance-1\RobloxPlayerBeta.exe</span><em>running</em></div>
+        <div class="path-row"><i>02</i><span>instance-2\RobloxPlayerBeta.exe</span><em>running</em></div>
+        <div class="path-row"><i>03</i><span>instance-3\RobloxPlayerBeta.exe</span><em>ready</em></div>
+      </div>
+
+      <div class="feature-visual account-lab reveal" aria-label="Encrypted saved accounts preview">
+        <div class="account-lab-head"><span>Saved accounts</span><i>Encrypted locally</i></div>
+        <div class="account-lab-row"><b>O</b><span><strong>Main account</strong><small>Premium · in game</small></span><em>Selected</em></div>
+        <div class="account-lab-row"><b>G</b><span><strong>Builder alt</strong><small>Online · 140 Robux</small></span><em>Ready</em></div>
+        <div class="account-lab-row"><b>T</b><span><strong>Testing</strong><small>Offline</small></span><em>Ready</em></div>
+      </div>
+      <article class="feature-detail reveal">
+        <span class="feature-index">02 · Account command center</span>
+        <h2>Sessions stay on your PC.</h2>
+        <p>Sign in through the official Roblox page. Fleet captures the resulting session, encrypts it with Windows DPAPI, and only decrypts it in the main process when minting a single-use launch ticket.</p>
+        <ul class="check-list compact"><li><span data-icon="check"></span>No passwords handled by Fleet</li><li><span data-icon="check"></span>2FA and captcha supported</li><li><span data-icon="check"></span>Robux, Premium, avatar, and presence</li></ul>
+      </article>
+    </section>
+
+    <section class="section section-toned" id="server-intelligence" aria-labelledby="server-title">
+      <div class="shell">
+        <div class="section-heading split-heading reveal">
+          <div><span class="eyebrow">Interactive lab</span><h2 id="server-title">Find the server that fits.</h2></div>
+          <p>Change the sort and filters. The preview recomputes the same signals Fleet exposes when scanning public Roblox servers.</p>
+        </div>
+        <div class="server-lab reveal" data-server-lab>
+          <div class="server-lab-top">
+            <div><span class="server-game-icon">B</span><div><strong>Server Intelligence</strong><small>Simulated public server sample</small></div></div>
+            <button class="button button-ghost button-small" type="button" data-server-scan><span data-icon="radar"></span> Deep scan</button>
+          </div>
+          <div class="server-sort" role="group" aria-label="Sort servers">
+            <button class="active" type="button" data-sort="best">Best match</button>
+            <button type="button" data-sort="ping">Lowest ping</button>
+            <button type="button" data-sort="space">Most space</button>
+            <button type="button" data-sort="players">Most players</button>
+            <button type="button" data-sort="fps">Highest FPS</button>
+          </div>
+          <div class="server-filter-row">
+            <label>Occupancy<select data-filter="occupancy"><option value="0">Any</option><option value="25">25%+</option><option value="50">50%+</option><option value="75">75%+</option></select></label>
+            <label>Max ping<select data-filter="ping"><option value="999">Any</option><option value="50">50 ms</option><option value="100">100 ms</option><option value="150">150 ms</option></select></label>
+            <label>Min FPS<select data-filter="fps"><option value="0">Any</option><option value="30">30</option><option value="45">45</option><option value="55">55</option></select></label>
+            <label>Free slots<select data-filter="slots"><option value="1">1+</option><option value="2">2+</option><option value="5">5+</option><option value="10">10+</option></select></label>
+          </div>
+          <div class="server-metrics" data-server-metrics></div>
+          <div class="server-results" data-server-results aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shell operations-section">
+      <div class="operations-copy reveal">
+        <span class="eyebrow">Live operations</span>
+        <h2>Know what every client is doing.</h2>
+        <p>Fleet enumerates Roblox processes through Win32 APIs, so the instance list remains responsive even while several clients boot.</p>
+        <div class="operation-actions"><span>Focus</span><span>Restart</span><span>Arrange</span><span>End</span><span>Cleanup</span></div>
+      </div>
+      <div class="operations-window reveal">
+        <div class="ops-head"><span>Running clients</span><small>3 active · 1.8 GB</small></div>
+        <div class="ops-row"><i class="green"></i><span><b>Brookhaven</b><small>Primary · PID 12804</small></span><em>612 MB</em><button type="button">Focus</button></div>
+        <div class="ops-row"><i class="green"></i><span><b>99 Nights</b><small>Builder alt · PID 13018</small></span><em>544 MB</em><button type="button">Focus</button></div>
+        <div class="ops-row"><i class="green"></i><span><b>Roblox</b><small>Signed out · PID 13440</small></span><em>638 MB</em><button type="button">Focus</button></div>
+      </div>
+    </section>
+
+    <section class="section section-toned">
+      <div class="shell capability-list">
+        <article class="reveal"><span data-icon="bookmark"></span><h3>Saved sessions</h3><p>Store account groups, game or server targets, and optional auto-arrange behavior as one-click setups.</p></article>
+        <article class="reveal"><span data-icon="rotate"></span><h3>Keep-alive</h3><p>Optionally rejoin a crashed client with cooldowns and strike-out protection instead of creating a restart loop.</p></article>
+        <article class="reveal"><span data-icon="clock"></span><h3>Playtime analytics</h3><p>Track local sessions by account and game, with today, seven-day, and all-time views.</p></article>
+        <article class="reveal"><span data-icon="users"></span><h3>People and server roster</h3><p>Search Roblox users, merge friends across accounts, and inspect the roster of a running local client.</p></article>
+        <article class="reveal"><span data-icon="history"></span><h3>Launch history</h3><p>See every launch and restart with time, account or mode, result, PID, and message.</p></article>
+        <article class="reveal"><span data-icon="terminal"></span><h3>Diagnostics</h3><p>Filter the live log, inspect the environment, open log files, or copy a concise diagnostic report.</p></article>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="shell final-cta-inner reveal"><div><span class="eyebrow">Ready when you are</span><h2>Make the next launch<br>the easy one.</h2></div><div><a class="button button-invert button-large" href="./download.html">Download Fleet 1.5.1</a><small>Windows 10/11 · x64</small></div></div>
+    </section>
+  </main>
+  <div data-site-footer></div>
+  <script type="module" src="./src/site.js"></script>
+</body>
+</html>

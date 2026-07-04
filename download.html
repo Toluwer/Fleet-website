@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Download Fleet 1.5.1 for Windows and follow the verified installation steps.">
+  <meta name="theme-color" content="#080a0c">
+  <title>Download Fleet for Windows</title>
+  <link rel="icon" href="./assets/fleet-icon.png">
+  <link rel="stylesheet" href="./src/styles.css">
+</head>
+<body data-page="download">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div data-site-header></div>
+  <main id="main">
+    <section class="download-hero shell">
+      <div class="download-copy reveal"><span class="eyebrow">Fleet 1.5.1</span><h1>Ready for your<br>Windows setup.</h1><p>One installer. Automatic Roblox detection. No extra runtime or helper to configure.</p></div>
+      <div class="download-card reveal">
+        <div class="download-app"><img src="./assets/fleet-logo.svg" alt="Fleet logo"><div><strong>Fleet for Windows</strong><small>Version 1.5.1 · x64</small></div><span>Latest</span></div>
+        <a class="button button-primary button-large button-full" href="https://github.com/Toluwer/Fleet/releases/download/v1.5.1/FleetInstaller.exe" data-direct-download>Download FleetInstaller.exe</a>
+        <div class="download-meta"><span>82.96 MB</span><span>Windows 10/11</span><span>Unsigned</span></div>
+        <p class="download-access-note">Release access follows the Fleet repository's GitHub visibility.</p>
+      </div>
+    </section>
+
+    <section class="section shell install-grid">
+      <div class="install-main reveal">
+        <span class="eyebrow">Install in a minute</span><h2>From download to ready.</h2>
+        <ol class="install-steps"><li><span>1</span><div><b>Run FleetInstaller.exe</b><p>Open the downloaded installer and choose Install. Fleet installs per user; administrator setup is not required by the installer configuration.</p></div></li><li><span>2</span><div><b>Handle the Windows warning</b><p>The current build is not code-signed. If SmartScreen appears, inspect the publisher information and file hash before choosing to continue.</p></div></li><li><span>3</span><div><b>Confirm Roblox detection</b><p>Fleet opens after setup. Instances should show a green Roblox detected banner and Multi-instance: ready.</p></div></li><li><span>4</span><div><b>Add accounts or stay signed out</b><p>Account sign-in is optional. Both launch modes support multiple isolated clients.</p></div></li></ol>
+      </div>
+      <aside class="requirements-card reveal"><h3>System requirements</h3><dl><div><dt>Operating system</dt><dd>Windows 10 or 11, 64-bit</dd></div><div><dt>Roblox</dt><dd>Desktop player installed</dd></div><div><dt>Memory</dt><dd>Depends on client count; each Roblox client commonly uses substantial RAM</dd></div><div><dt>Network</dt><dd>Required for Roblox APIs, account sign-in, and games</dd></div></dl><div class="requirements-note"><span data-icon="info"></span><p>Fleet is Windows-only because its multi-instance engine uses Win32 APIs.</p></div></aside>
+    </section>
+
+    <section class="section section-toned" id="verify">
+      <div class="shell verify-grid">
+        <div class="reveal"><span class="eyebrow">Verify the file</span><h2>Check before you run.</h2><p>Compare the SHA-256 hash of the downloaded 1.5.1 installer with the build artifact used for this release.</p></div>
+        <div class="hash-card reveal"><div><span>SHA-256 · FleetInstaller.exe</span><button type="button" data-copy-value="4A6856BD78F3081E5800485774885839997FBFB1E43A30B9F49F5E7C9D505AC8">Copy</button></div><code>4A6856BD78F3081E5800485774885839997FBFB1E43A30B9F49F5E7C9D505AC8</code><div class="code-block compact-code"><div><span>PowerShell</span><button type="button" data-copy-code>Copy</button></div><pre><code>Get-FileHash .\FleetInstaller.exe -Algorithm SHA256</code></pre></div></div>
+      </div>
+    </section>
+
+    <section class="section shell security-grid">
+      <div class="security-copy reveal"><span class="eyebrow">What the installer contains</span><h2>No mystery helper.</h2><p>The installer packages the Electron desktop app, its renderer, the koffi native runtime used for Win32 access, and update metadata. Fleet does not install a service or browser extension.</p></div>
+      <div class="security-list reveal"><div><span data-icon="monitor"></span><p><b>Desktop application</b><small>Fleet.exe and its Electron runtime.</small></p></div><div><span data-icon="tool"></span><p><b>Native access layer</b><small>koffi bindings for Windows process and window APIs.</small></p></div><div><span data-icon="refresh"></span><p><b>Update support</b><small>NSIS metadata for reachable GitHub Releases.</small></p></div><div><span data-icon="trash"></span><p><b>Standard uninstall</b><small>Remove Fleet from Windows Apps & features.</small></p></div></div>
+    </section>
+
+    <section class="download-help shell reveal"><div><h2>Prefer to inspect the source?</h2><p>The Fleet application repository includes the Electron source, technical architecture, user guide, tests, and build scripts.</p></div><a class="button button-ghost" href="https://github.com/Toluwer/Fleet">View the Fleet repository</a></section>
+  </main>
+  <div data-site-footer></div>
+  <script type="module" src="./src/site.js"></script>
+</body>
+</html>
