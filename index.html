@@ -12,8 +12,8 @@
   <meta property="og:image" content="https://toluwer.github.io/Fleet-website/screens/instances.png">
   <meta property="og:image:secure_url" content="https://toluwer.github.io/Fleet-website/screens/instances.png">
   <meta property="og:image:type" content="image/png">
-  <meta property="og:image:width" content="1920">
-  <meta property="og:image:height" content="1279">
+  <meta property="og:image:width" content="1860">
+  <meta property="og:image:height" content="1000">
   <meta property="og:image:alt" content="Fleet Instances screen showing the multi-client launcher and manager">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Fleet · One command center for every Roblox client">
@@ -29,7 +29,7 @@
 
   <header class="project-header">
     <div class="shell project-header-inner">
-      <a class="project-brand" href="./index.html" aria-label="Fleet home"><img src="./assets/fleet-logo.svg" alt=""><span>Fleet</span><small>open source</small></a>
+      <a class="project-brand" href="./index.html" aria-label="Fleet home"><img src="./assets/fleet-logo.svg" alt=""><span>Fleet</span><small>Windows command center</small></a>
       <nav aria-label="Primary navigation"><a href="#demo">Demo</a><a href="#features">Features</a><a href="#inside">How it works</a></nav>
       <a class="project-github" href="https://github.com/Toluwer/Fleet" aria-label="View Fleet on GitHub"><span data-icon="terminal"></span> GitHub</a>
     </div>
@@ -37,14 +37,33 @@
 
   <main id="main">
     <section class="project-hero shell">
-      <div class="project-version"><span></span> Fleet 1.5.2 · Tauri 2 · Windows</div>
-      <h1>One place for every<br><em>Roblox client.</em></h1>
-      <p>Fleet is a local-first command center for launching separate clients, switching accounts, finding servers, and keeping a busy setup under control.</p>
-      <div class="project-hero-actions">
-        <a class="button button-primary button-large" href="https://github.com/Toluwer/Fleet">View the source</a>
-        <a class="button button-ghost button-large" href="#demo">Try the live preview</a>
+      <div class="project-hero-copy">
+        <div class="project-version"><span></span> Fleet 1.5.2 <i></i> Tauri 2 <i></i> Windows</div>
+        <h1>Every Roblox client.<br><em>One command center.</em></h1>
+        <p>Launch isolated clients, move between accounts, find the right server, and keep the whole setup visible without touching your Roblox installation.</p>
+        <div class="project-hero-actions">
+          <a class="button button-primary button-large" href="#demo">Explore Fleet</a>
+          <a class="button button-ghost button-large" href="https://github.com/Toluwer/Fleet">View on GitHub</a>
+        </div>
+        <div class="project-properties" aria-label="Project properties"><span>Local-first</span><span>Windows 10/11</span><span>MIT licensed</span><span>Open source</span></div>
       </div>
-      <div class="project-properties" aria-label="Project properties"><span>Local-first</span><span>Windows 10/11</span><span>MIT licensed</span><span>No Roblox files modified</span></div>
+      <div class="hero-product" aria-label="Fleet application overview">
+        <div class="hero-product-glow"></div>
+        <div class="hero-window">
+          <div class="hero-window-bar"><span></span><div><i></i><i></i><i></i></div></div>
+          <div class="hero-window-body">
+            <aside><b><span data-icon="layers"></span></b><b><span data-icon="compass"></span></b><b><span data-icon="users"></span></b><b><span data-icon="activity"></span></b></aside>
+            <div class="hero-dashboard">
+              <header><small>INSTANCES</small><strong>Launch control</strong><span>2 accounts ready</span></header>
+              <div class="hero-detected"><span data-icon="check"></span><div><b>Roblox detected</b><small>Ready for isolated clients</small></div></div>
+              <div class="hero-launch-card"><div><small>SELECTED ACCOUNTS</small><strong>toluwer26 + ormanoa2</strong></div><button type="button" tabindex="-1">Launch 2</button></div>
+              <div class="hero-metrics"><div><b>02</b><small>Accounts</small></div><div><b>00</b><small>Running</small></div><div><b>Ready</b><small>Guard</small></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-float hero-float-a"><span data-icon="layers"></span><div><b>Separate paths</b><small>One client per account</small></div></div>
+        <div class="hero-float hero-float-b"><span data-icon="shield"></span><div><b>Stored locally</b><small>No cloud dashboard</small></div></div>
+      </div>
     </section>
 
     <section class="project-demo-section shell" id="demo" aria-labelledby="demo-title">
@@ -54,10 +73,7 @@
       </div>
       <div class="project-demo-status"><span class="pulse-dot"></span> Interactive preview · simulated data</div>
       <div class="app-demo project-app-demo" data-fleet-demo aria-label="Interactive Fleet application preview">
-        <div class="app-demo-titlebar">
-          <div class="mini-brand"><img src="./assets/fleet-logo.svg" alt=""> Fleet</div>
-          <div class="window-dots" aria-hidden="true"><span></span><span></span><span class="close"></span></div>
-        </div>
+        <div class="app-demo-titlebar"><div class="demo-titlebar-drag"></div><div class="window-dots" aria-hidden="true"><span></span><span></span><span class="close"></span></div></div>
         <div class="app-demo-shell">
           <nav class="demo-sidebar" aria-label="Preview sections">
             <button class="demo-nav active" type="button" data-demo-view="instances"><span data-icon="layers"></span><span>Instances</span><i data-demo-count>0</i></button>
@@ -101,7 +117,7 @@
         <div class="showcase-frame">
           <div class="browser-chrome" aria-hidden="true"><i></i><i></i><i></i><span>Fleet · local application</span></div>
           <div class="showcase-image-wrap">
-            <img src="./screens/instances.png" alt="Fleet Instances page" data-showcase-image width="1920" height="1279">
+            <img src="./screens/instances.png" alt="Fleet Instances page" data-showcase-image width="1860" height="1000">
             <button class="hotspot hotspot-a" type="button" data-hotspot="Launch modes" aria-label="Show information about launch modes"><span>1</span></button>
             <button class="hotspot hotspot-b" type="button" data-hotspot="Saved sessions" aria-label="Show information about saved sessions"><span>2</span></button>
             <div class="hotspot-note" data-hotspot-note>Click a marker to inspect the workflow.</div>

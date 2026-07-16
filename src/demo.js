@@ -6,7 +6,7 @@ if (demo) {
   const countBadge = demo.querySelector('[data-demo-count]');
   const toast = demo.querySelector('[data-demo-toast]');
   const state = {
-    view: 'instances', mode: 'account', selected: new Set(['Primary']), signedOutCount: 1, clients: [], launches: 0,
+    view: 'instances', mode: 'account', selected: new Set(['toluwer26']), signedOutCount: 1, clients: [], launches: 0,
     games: [
       { name: 'Brookhaven RP', players: '672K', c1: '#8abfdf', c2: '#52698f' },
       { name: '99 Nights in the Forest', players: '809K', c1: '#284f2c', c2: '#6d2f24' },
@@ -14,10 +14,10 @@ if (demo) {
       { name: 'Steal a Brainrot', players: '307K', c1: '#2f88de', c2: '#dd4055' }
     ],
     people: [
-      { display: 'Wag', user: 'wayme88', status: 'Offline', team: 'No team' },
       { display: 'Gameknight', user: 'Gameknight908_Alt', status: 'In game', team: 'Blue' },
-      { display: 'Builder', user: 'builder_alt', status: 'Online', team: 'Red' },
-      { display: 'Testing', user: 'fleet_testing', status: 'In game', team: 'No team' }
+      { display: 'TOLUWER', user: 'TOLUWER', status: 'Online', team: 'No team' },
+      { display: 'Toluwizer', user: 'Toluwizer', status: 'Offline', team: 'No team' },
+      { display: 'toluwerty', user: 'toluwerty', status: 'In game', team: 'Red' }
     ]
   };
   let toastTimer;
@@ -38,7 +38,7 @@ if (demo) {
     return `<div class="demo-page-head"><div><h3>Instances</h3><p>Launch Roblox and watch every client live.</p></div></div>
       <div class="demo-detected">${icon('check')}<span><b>Roblox detected</b><small>version-current · found automatically</small></span></div>
       <div class="demo-panel"><div class="demo-panel-head"><strong>Launch Roblox</strong><div class="demo-segment"><button type="button" data-mode="account" class="${accountMode?'active':''}">With account</button><button type="button" data-mode="signedout" class="${!accountMode?'active':''}">Signed out</button></div></div>
-      <div class="demo-launch-row">${accountMode ? `<div class="demo-chips">${['Primary','Builder','Testing'].map(name=>`<button type="button" class="demo-chip ${state.selected.has(name)?'active':''}" data-account="${name}">${name}</button>`).join('')}</div>` : `<div class="demo-stepper"><button type="button" data-count="-1">−</button><span>${state.signedOutCount}</span><button type="button" data-count="1">+</button></div>`}<button class="demo-launch-button" type="button" data-launch>▷ Launch</button></div></div>
+      <div class="demo-launch-row">${accountMode ? `<div class="demo-chips">${['toluwer26','ormanoa2'].map(name=>`<button type="button" class="demo-chip ${state.selected.has(name)?'active':''}" data-account="${name}">${name}</button>`).join('')}</div>` : `<div class="demo-stepper"><button type="button" data-count="-1">−</button><span>${state.signedOutCount}</span><button type="button" data-count="1">+</button></div>`}<button class="demo-launch-button" type="button" data-launch>▷ Launch</button></div></div>
       <div class="demo-panel"><div class="demo-panel-head"><strong>Running clients</strong><small>${state.clients.length} active</small></div><div data-demo-instances>${clients}</div></div>`;
   }
 
@@ -85,7 +85,7 @@ if (demo) {
     const end = event.target.closest('[data-end-client]');
     if (end) { state.clients=state.clients.filter(client=>client.pid!==Number(end.dataset.endClient)); render(); notify('Client ended'); return; }
     const join = event.target.closest('[data-join-game]');
-    if (join) { const game=state.games[Number(join.dataset.joinGame)] || state.games[0]; state.clients.push({pid:14000+state.launches,title:game.name,account:'Primary',status:'Running'}); state.launches++; notify(`Joining ${game.name}`); countBadge.textContent=state.clients.length; }
+    if (join) { const game=state.games[Number(join.dataset.joinGame)] || state.games[0]; state.clients.push({pid:14000+state.launches,title:game.name,account:'toluwer26',status:'Running'}); state.launches++; notify(`Joining ${game.name}`); countBadge.textContent=state.clients.length; }
   });
   canvas.addEventListener('submit', event => {
     event.preventDefault();

@@ -58,6 +58,8 @@ for (const page of pages) {
 }
 
 const index = await readFile(join(root, 'index.html'), 'utf8');
+const styles = await readFile(join(root, 'src', 'styles.css'), 'utf8');
+const demo = await readFile(join(root, 'src', 'demo.js'), 'utf8');
 check(index.includes('data-fleet-demo'), 'index.html: interactive Fleet demo is missing');
 check(index.includes('data-showcase-image'), 'index.html: screenshot showcase is missing');
 check(index.includes('src="./src/demo.js"'), 'index.html: demo controller is missing');
@@ -65,6 +67,18 @@ check(index.includes('Fleet 1.5.2'), 'index.html: latest Fleet version is missin
 check(index.includes('property="og:image" content="https://toluwer.github.io/Fleet-website/screens/instances.png"'), 'index.html: Discord preview image must use an absolute public URL');
 check(index.includes('name="twitter:card" content="summary_large_image"'), 'index.html: large social preview metadata is missing');
 check(!/<a[^>]+href="[^"]*(?:download|installer)/i.test(index), 'index.html: product page drifted back into an installer portal');
+check(styles.includes('--blue: #2f6df2'), 'styles.css: Fleet blue theme token is missing');
+check(!/#9cff57|#b9ff68|#b8ff5a/i.test(styles), 'styles.css: stale neon-green theme remains');
+check(index.includes('toluwer26 + ormanoa2'), 'index.html: account preview is missing');
+check(demo.includes("['toluwer26','ormanoa2']"), 'src/demo.js: interactive account chips are missing');
+check(!/\.ROBLOSECURITY|password|auth(?:entication)? token|session cookie/i.test(`${index}\n${demo}`), 'public client source exposes a credential field or secret');
+check(index.includes('<div class="demo-titlebar-drag"></div>'), 'index.html: clean blank app titlebar is missing');
+
+for (const screenshot of ['instances.png', 'games.png', 'people.png', 'stats.png']) {
+  const bytes = await readFile(join(root, 'public', 'screens', screenshot));
+  check(bytes.toString('ascii', 1, 4) === 'PNG', `${screenshot}: screenshot is not a PNG`);
+  check(bytes.readUInt32BE(16) === 1860 && bytes.readUInt32BE(20) === 1000, `${screenshot}: screenshot dimensions must be 1860x1000`);
+}
 
 for (const source of ['src/site.js', 'src/demo.js']) {
   const code = await readFile(join(root, source), 'utf8');
